@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Preguntas</title>
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+              integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href=" {% static 'styles.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row mt-5 justify-content-center">
+                <div class="col col-md-8 mt-5 text-center">
+                    <h4 class = "text-uppercase">Resultado Votacion</h4>
+                    <hr>
+                    {% for datos in data  %}
+                        <small class = "form-text">{{ datos.question }} <strong>-></strong> Respuesta: {{ datos.choices_text }} - <span class="badge badge-secondary">Votacion: {{ datos.votes }}</span></small>
+                        <hr>
+                    {% endfor %}
+                    <a class="btn btn-primary btn-sm " href="{% url 'polls:index'%}">¿Te gustaria votar nuevamente?</a>
+                </div>
+                
+            </div>
+        </div>
+    </body>
+</html>

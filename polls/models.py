@@ -7,7 +7,9 @@ from django.db import models
 ================================================
 """
 
-# Clase Question
+"""
+    Documentacion Django QuerySet: https://docs.djangoproject.com/en/4.0/ref/models/querysets/#field-lookups
+"""
 
 
 class Question(models.Model):
@@ -16,10 +18,10 @@ class Question(models.Model):
         max_length=200,
         help_text="Ingresa la pregunta")
 
-    pub_date = models.DateTimeField()
+    pub_date = models.DateTimeField(auto_now=False, auto_now_add=True)
 
     def __str__(self):
-        return "{} - {}".format(self.question_text, self.pub_date)
+        return "{}-{}".format(self.id, self.question_text)
 
     def __unicode__(self):
         return
@@ -33,7 +35,7 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)
 
     def __str__(self):
-        return
+        return "{}-{}".format(self.id, self.choices_text)
 
     def __unicode__(self):
         return

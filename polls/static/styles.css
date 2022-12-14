@@ -1,0 +1,16 @@
+body {
+  color: #f9e070;
+  background: #0F2027;
+  background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+  font-family: Aldrich, sans-serif;
+}
+
+.btn.btn-primary.btn-sm {
+  background-color: #f9e070;
+  color: #0f2027;
+  border-color: #f9e070;
+}
+
+hr {
+  border-top: 2px solid whitesmoke;
+}

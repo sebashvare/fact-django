@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Preguntas</title>
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Aldrich">
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+              integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href=" {% static 'styles.css' %} ">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col mt-5 col-md-6 text-center">
+                    <h4 class="text-uppercase">preguntas</h4>
+                    <small class="form-text">Listado de preguntas</small>
+                    <hr class="barra">
+                    {% if latest_question_list %}
+                        {% for questions in latest_question_list %}
+                            <p class="p-3">{{ questions.question_text }}</p>
+                            <hr>
+                        {% endfor %}
+                    {% else %}
+                        <p>No se tiene data hasta el momento</p>
+                    {% endif %}
+                </div>
+                <div class="col mt-5 col-md-6 text-center">
+                    <h4 class="text-uppercase">respuestas</h4>
+                    <small class="form-text">Seleccione del listado de respuestas</small>
+                    <hr>
+                    {% if latest_question_list %}
+                        {% for data in latest_question_list %}
+                            <a class="btn btn-primary btn-sm p-3"
+                               href="{% url 'polls:detalle_question'  data.id %}">Ver Respuestas</a>
+                            <hr>
+                        {% endfor %}
+                    {% else %}
+                        <p>No se tiene data hasta el momento</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
